@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <style>
+    body{
+        text-align:center;
+    }
+    h4{
+        text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="#" method="post" novalidate>
+
+    <fieldset>
+        <legend>Details</legend>
+        <label>Firstname : <input type="text" name="firstname"></label>
+        <br> <br>
+        <label>Lastname : <input type="text" name="lastname"></label>
+    <br> <br>
+
+    <label for="email">Email:</label>
+    <input class="mail" type="email" placeholder="Format: example@gmail.com" id="email" name="email" required>
+
+    <br> <br>
+   
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" required>
+
+    <br> <br>
+
+    <label for="address"><address> address:</label>
+    <textarea name="address" id="address" cols="30" rows="3"></textarea>
+
+    <br>
+
+    <input type="radio" name="gender" id="male">
+    <label for="male">Male </label>
+    <input type="radio" name="gender" id="female">
+    <label for="female">Female </label>
+
+    <br> <br>
+
+    <input type="checkbox" name="sports" id="soccer">
+    <label for="soccer">Football</label>
+    <input type="checkbox" name="sports" id="cricket">
+    <label for="cricket">Cricket</label>
+    <input type="checkbox" name="sports" id="badminton">
+    <label for="badminton">Badminton</label>
+
+    <br> <br>
+
+    <label for="file-select">Upload :</label>
+    <input type="file" name="upload" id="file-select">
+    
+    <br> <br>
+
+    <label for="brand">Brand :</label>
+    <select name="brand" id="brand">
+        <option value="google">Google</option>
+        <option value="apple">Apple</option>
+        <option value="samsung">Samsung</option>
+    </select>
+
+    <br> <br>
+    <input type="month">
+
+    <br><br>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="reset">
+
+    </fieldset>
+  </form>
+
+    <h4>Done by Madhan T - 22C071</h4>
+
+</body>
+</html>
+
