@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stadium Ticket Booking</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #ticketForm {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #matchesList {
+            margin-top: 20px;
+        }
+
+        #matchesList ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #matchesList li {
+            background-color: #eee;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ticketForm">
+    <h1>Stadium Ticket Booking</h1>
+
+    <label for="ticketClass">Select Class:</label>
+    <select id="ticketClass">
+        <option value="A1">Class A1</option>
+        <option value="A2">Class A2</option>
+        <option value="B1">Class B1</option>
+        <option value="B2">Class B2</option>
+    </select>
+
+    <label for="quantity">Select Quantity:</label>
+    <input type="number" id="quantity" min="1" placeholder="Enter quantity">
+
+    <label for="matchDate">Select Date:</label>
+    <input type="date" id="matchDate">
+
+    <label for="matchList">Select Match:</label>
+    <select id="matchList">
+        <option value="IndVsAus">India vs Australia</option>
+        <option value="EngVsNZ">England vs New Zealand</option>
+        <!-- Add more matches here -->
+    </select>
+
+    <button onclick="bookTicket()">Book Ticket</button>
+
+    <div id="matchesList">
+        <h2>Matches Played on Selected Date:</h2>
+        <ul id="matchResults"></ul>
+    </div>
+</div>
+
+<script>
+    function bookTicket() {
+        // Get selected values
+        const selectedClass = document.getElementById('ticketClass').value;
+        const quantity = document.getElementById('quantity').value;
+        const matchDate = document.getElementById('matchDate').value;
+        const selectedMatch = document.getElementById('matchList').value;
+
+        // Display ticket details
+        alert(`Ticket booked for ${selectedClass} - ${quantity} seat(s) for ${selectedMatch} on ${matchDate}`);
+
+        // Display matches played on selected date
+        displayMatches(matchDate);
+    }
+
+    function displayMatches(date) {
+        const matchesList = document.getElementById('matchResults');
+        // Clear previous results
+        matchesList.innerHTML = '';
+
+        // Simulated list of matches (replace with dynamic data from a server/database)
+        const matchesData = {
+            "2024-02-15": ["India vs Australia", "England vs New Zealand"],
+            "2024-02-16": ["Brazil vs Argentina", "Germany vs France"],
+            // Add more matches for different dates
+        };
+
+        const matchesOnDate = matchesData[date];
+        if (matchesOnDate) {
+            matchesOnDate.forEach(match => {
+                const listItem = document.createElement('li');
+                listItem.textContent = match;
+                matchesList.appendChild(listItem);
+            });
+        } else {
+            const listItem = document.createElement('li');
+            listItem.textContent = "No matches on selected date";
+            matchesList.appendChild(listItem);
+        }
+    }
+</script>
+
+</body>
+</html>

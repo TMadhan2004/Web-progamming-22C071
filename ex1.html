@@ -16,13 +16,13 @@
 </head>
 <body>
 
-  <form action="#" method="post" novalidate>
+  <form action="#" method="post">
 
     <fieldset>
         <legend><b>Details</b></legend>
-        <label>Firstname : <input type="text" name="firstname"></label>
+        <label>Firstname : <input type="text" name="firstname" required></label>
         <br> <br>
-        <label>Lastname : <input type="text" name="lastname"></label>
+        <label>Lastname : <input type="text" name="lastname" required></label>
     <br> <br>
 
     <label for="email">Email:</label>
@@ -31,7 +31,7 @@
     <br> <br>
 
 	 <label for="user-pwd">Password :</label>
-	 <input type="password" name="user-password" id="user-pwd">
+	 <input type="password" name="user-password" id="user-pwd" required>
 
 	 <br> <br>
    
@@ -41,7 +41,7 @@
     <br> <br>
 
     <label for="address"><address> address:</label>
-    <textarea name="address" id="address" cols="30" rows="3"></textarea>
+    <textarea name="address" id="address" cols="30" rows="3" required></textarea>
 
     <br>
 
