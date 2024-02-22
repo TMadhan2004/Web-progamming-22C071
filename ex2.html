@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <style>
+    body {
+      background-color: lightsteelblue;
+      text-align: center;
+    }
+
+    h4 {
+      text-align: right;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .error-message {
+      color: red;
+      text-align: left;
+      margin-left: 10px;
+    }
+
+    .success-message {
+      color: green;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form id="myForm">
+
+    <fieldset>
+      <legend><b>Details</b></legend>
+      <label>Firstname : <input type="text" name="firstname" id="firstname">
+        <span class="error-message" id="firstname-error"></span>
+      </label>
+      <br> <br>
+
+      <label>Lastname : <input type="text" name="lastname" id="lastname">
+        <span class="error-message" id="lastname-error"></span>
+      </label>
+      <br> <br>
+
+      <label>Email : <input type="email" name="email" id="email" placeholder="Format: example@gmail.com">
+        <span class="error-message" id="email-error"></span>
+      </label>
+      <br> <br>
+
+      <label>Password : <input type="password" name="user-password" id="user-pwd">
+        <span class="error-message" id="user-pwd-error"></span>
+      </label>
+      <br> <br>
+
+      <label>Phone Number : <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Please enter a 10-digit phone number">
+        <span class="error-message" id="phone-error"></span>
+      </label>
+      <br> <br>
+
+      <label>Address : <textarea name="address" id="address" cols="30" rows="3"></textarea>
+        <span class="error-message" id="address-error"></span>
+      </label>
+      <br> <br>
+
+      <label>Gender :
+        <input type="radio" name="gender" id="male">
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female">
+        <label for="female">Female</label>
+      </label>
+      <br> <br>
+
+      <label>Sports :
+        <input type="checkbox" name="sports" id="soccer">
+        <label for="soccer">Football</label>
+        <input type="checkbox" name="sports" id="cricket">
+        <label for="cricket">Cricket</label>
+        <input type="checkbox" name="sports" id="badminton">
+        <label for="badminton">Badminton</label>
+      </label>
+      <br> <br>
+
+      <label>Upload : <input type="file" name="upload" id="file-select"></label>
+      <br> <br>
+
+      <label>Brand :
+        <select name="brand" id="brand">
+          <option value="google">Google</option>
+          <option value="apple">Apple</option>
+          <option value="samsung">Samsung</option>
+        </select>
+      </label>
+      <br> <br>
+
+      <label>Date: <input type="month"></label>
+      <br> <br>
+
+      <!-- Add more fields as needed -->
+
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </fieldset>
+  </form>
+
+  <div id="successMessage" class="success-message" style="display:none;">
+    Submitted successfully!
+  </div>
+
+  <h4>Done by Madhan T - 22C071</h4>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+      let isValid = true;
+
+      function validateField(fieldId, errorMessage) {
+        const value = document.getElementById(fieldId).value.trim();
+        const errorSpan = document.getElementById(`${fieldId}-error`);
+
+        if (value === "") {
+          isValid = false;
+          errorSpan.textContent = errorMessage;
+          document.getElementById(fieldId).classList.add("error");
+        } else {
+          errorSpan.textContent = "";
+          document.getElementById(fieldId).classList.remove("error");
+        }
+      }
+
+      validateField("firstname", "Please fill this detail");
+      validateField("lastname", "Please fill this detail");
+      validateField("email", "Please fill this detail");
+      validateField("user-pwd", "Please fill this detail");
+      validateField("phone", "Please fill this detail");
+      validateField("address", "Please fill this detail");
+
+      // Add more validations for other fields...
+
+      if (!isValid) {
+        event.preventDefault();
+      } else {
+        // Display success message
+        alert("Submitted successfully");
+        //document.getElementById("successMessage").style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+
+</html>
